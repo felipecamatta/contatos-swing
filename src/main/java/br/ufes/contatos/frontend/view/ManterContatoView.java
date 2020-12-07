@@ -3,9 +3,9 @@ package br.ufes.contatos.frontend.view;
 import javax.swing.JButton;
 import javax.swing.JTextField;
 
-public class IncluirContatoView extends javax.swing.JFrame {
+public class ManterContatoView extends javax.swing.JFrame {
 
-    public IncluirContatoView() {
+    public ManterContatoView() {
         initComponents();
         this.setLocationRelativeTo(this.getParent());
     }

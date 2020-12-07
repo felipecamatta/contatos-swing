@@ -1,19 +1,19 @@
-package br.ufes.contatos.frontend.presenter;
+package br.ufes.contatos.frontend.presenter.state;
 
 import br.ufes.contatos.frontend.model.Contato;
-import br.ufes.contatos.frontend.view.IncluirContatoView;
+import br.ufes.contatos.frontend.presenter.ManterContatoPresenter;
+import br.ufes.contatos.frontend.view.ManterContatoView;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class IncluirContatoPresenter extends ManterContatosState{
-
+public class IncluirContatoPresenter extends ManterContatosState {
 
     public IncluirContatoPresenter(ManterContatoPresenter principal) {
-        super(new IncluirContatoView(), principal);
-        
-        IncluirContatoView view = (IncluirContatoView) this.getView();
+        super(new ManterContatoView(), principal);
+
+        ManterContatoView view = (ManterContatoView) this.getView();
 
         view.getBtnFechar().addActionListener(new ActionListener() {
             @Override
@@ -37,27 +37,20 @@ public class IncluirContatoPresenter extends ManterContatosState{
     }
 
     @Override
-    public void fechar() {
-        this.getView().dispose();
-    }
-
-    @Override
     public void salvar(Contato contato) {
-        IncluirContatoView view = (IncluirContatoView) this.getView();
-        
+        ManterContatoView view = (ManterContatoView) this.getView();
 
         this.getContatoService().saveContato(contato);
-        //contatos.add(contato);
 
         JOptionPane.showMessageDialog(view,
                 "Contato " + contato.getNome() + " salvo com sucesso!",
                 "Salvo com sucesso",
                 JOptionPane.INFORMATION_MESSAGE);
     }
-
+    
     @Override
-    public void excluir(Contato contato) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public void fechar() {
+        this.getView().dispose();
     }
 
 }

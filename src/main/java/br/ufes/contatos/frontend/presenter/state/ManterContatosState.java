@@ -1,20 +1,12 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-package br.ufes.contatos.frontend.presenter;
+package br.ufes.contatos.frontend.presenter.state;
 
 import br.ufes.contatos.frontend.service.ContatoService;
 import br.ufes.contatos.frontend.model.Contato;
+import br.ufes.contatos.frontend.presenter.ManterContatoPresenter;
 import javax.swing.JFrame;
 
-/**
- *
- * @author gabriel
- */
 public abstract class ManterContatosState {
-    
+
     private JFrame view;
     private ContatoService contatoService;
     private ManterContatoPresenter controlador;
@@ -45,8 +37,21 @@ public abstract class ManterContatosState {
     public ManterContatoPresenter getControlador() {
         return controlador;
     }
-    
-    public abstract void salvar(Contato contato);
-    public abstract void excluir(Contato contato);
-    public abstract void fechar();
+
+    public void salvar(Contato contato) {
+        throw new UnsupportedOperationException("Not supported yet.");
+    }
+
+    public void editar(Contato contato) {
+        throw new UnsupportedOperationException("Not supported yet.");
+    }
+
+    public void excluir(Contato contato) {
+        throw new UnsupportedOperationException("Not supported yet.");
+    }
+
+    public void fechar() {
+        throw new UnsupportedOperationException("Not supported yet.");
+    }
+
 }

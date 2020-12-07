@@ -1,5 +1,7 @@
 package br.ufes.contatos.frontend.presenter;
 
+import br.ufes.contatos.frontend.presenter.state.ManterContatosState;
+import br.ufes.contatos.frontend.presenter.state.IncluirContatoPresenter;
 import br.ufes.contatos.frontend.collection.ContatoCollection;
 import br.ufes.contatos.frontend.view.PrincipalView;
 import static java.awt.Frame.MAXIMIZED_BOTH;

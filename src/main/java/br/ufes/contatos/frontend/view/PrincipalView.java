@@ -2,7 +2,7 @@ package br.ufes.contatos.frontend.view;
 
 import br.ufes.contatos.frontend.collection.ContatoCollection;
 import br.ufes.contatos.frontend.presenter.ConsultarContatosPresenter;
-import br.ufes.contatos.frontend.presenter.IncluirContatoPresenter;
+import br.ufes.contatos.frontend.presenter.state.IncluirContatoPresenter;
 import br.ufes.contatos.frontend.service.ContatoService;
 
 import javax.swing.*;
