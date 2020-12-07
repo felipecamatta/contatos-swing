@@ -23,5 +23,11 @@ public class ContatoService {
 
         Contato result = restTemplate.postForObject(url, contato, Contato.class);
     }
+    
+    public void deleteContato(Contato contato){
+        RestTemplate restTemplate = new RestTemplate();
+
+        restTemplate.delete(url, contato, Contato.class);
+    }
 
 }

@@ -2,7 +2,7 @@ package br.ufes.contatos.frontend.view;
 
 import br.ufes.contatos.frontend.collection.ContatoCollection;
 import br.ufes.contatos.frontend.presenter.ConsultarContatosPresenter;
-import br.ufes.contatos.frontend.presenter.ManterContatoPresenter;
+import br.ufes.contatos.frontend.presenter.IncluirContatoPresenter;
 import br.ufes.contatos.frontend.service.ContatoService;
 
 import javax.swing.*;
@@ -14,15 +14,6 @@ public class PrincipalView extends JFrame {
 
     public PrincipalView() {
         initComponents();
-
-        setState(JFrame.ICONIFIED);
-
-        contatos = contatoService.getContatos();
-
-        this.setLocationRelativeTo(this.getParent());
-        this.setExtendedState(MAXIMIZED_BOTH);
-
-        setVisible(true);
     }
 
     @SuppressWarnings("unchecked")
@@ -31,29 +22,29 @@ public class PrincipalView extends JFrame {
 
         mbPrincipal = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
-        jMenuItem1 = new javax.swing.JMenuItem();
-        jMenuItem2 = new javax.swing.JMenuItem();
+        itemIncluir = new javax.swing.JMenuItem();
+        itemConsultar = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Gestão de Contatos");
 
         jMenu1.setText("Opções");
 
-        jMenuItem1.setText("Incluir contatos");
-        jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
+        itemIncluir.setText("Incluir contatos");
+        itemIncluir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem1ActionPerformed(evt);
+                itemIncluirActionPerformed(evt);
             }
         });
-        jMenu1.add(jMenuItem1);
+        jMenu1.add(itemIncluir);
 
-        jMenuItem2.setText("Consultar contatos");
-        jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
+        itemConsultar.setText("Consultar contatos");
+        itemConsultar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem2ActionPerformed(evt);
+                itemConsultarActionPerformed(evt);
             }
         });
-        jMenu1.add(jMenuItem2);
+        jMenu1.add(itemConsultar);
 
         mbPrincipal.add(jMenu1);
 
@@ -73,18 +64,28 @@ public class PrincipalView extends JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
-        new ConsultarContatosPresenter(contatos);
-    }//GEN-LAST:event_jMenuItem2ActionPerformed
+    private void itemConsultarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itemConsultarActionPerformed
 
-    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
-        ManterContatoPresenter presenter = new ManterContatoPresenter(contatos);
-    }//GEN-LAST:event_jMenuItem1ActionPerformed
+    }//GEN-LAST:event_itemConsultarActionPerformed
 
+    private void itemIncluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itemIncluirActionPerformed
+
+    }//GEN-LAST:event_itemIncluirActionPerformed
+
+    public JMenuItem getItemConsultar() {
+        return itemConsultar;
+    }
+
+    public JMenuItem getItemIncluir() {
+        return itemIncluir;
+    }
+
+    
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JMenuItem itemConsultar;
+    private javax.swing.JMenuItem itemIncluir;
     private javax.swing.JMenu jMenu1;
-    private javax.swing.JMenuItem jMenuItem1;
-    private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JMenuBar mbPrincipal;
     // End of variables declaration//GEN-END:variables
 }
