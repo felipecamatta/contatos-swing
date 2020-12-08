@@ -6,7 +6,7 @@
 package br.ufes.contatos.frontend.presenter.command;
 
 import br.ufes.contatos.frontend.model.Contato;
-import br.ufes.contatos.frontend.presenter.state.ManterPresenter;
+import br.ufes.contatos.frontend.presenter.ManterPresenter;
 
 
 /**

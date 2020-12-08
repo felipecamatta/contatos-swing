@@ -1,5 +1,6 @@
 package br.ufes.contatos.frontend.presenter.state;
 
+import br.ufes.contatos.frontend.presenter.ManterPresenter;
 import br.ufes.contatos.frontend.model.Contato;
 import br.ufes.contatos.frontend.view.ManterContatoView;
 import javax.swing.JOptionPane;

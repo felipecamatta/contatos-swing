@@ -1,5 +1,5 @@
 
-package br.ufes.contatos.frontend.presenter.state;
+package br.ufes.contatos.frontend.presenter;
 
 import br.ufes.contatos.frontend.model.Contato;
 import br.ufes.contatos.frontend.view.ManterContatoView;
@@ -7,6 +7,9 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import br.ufes.contatos.frontend.presenter.command.ICommandPresenter;
 import br.ufes.contatos.frontend.presenter.command.InsercaoCommand;
+import br.ufes.contatos.frontend.presenter.state.EdicaoContatoPresenter;
+import br.ufes.contatos.frontend.presenter.state.IncluirContatoPresenter;
+import br.ufes.contatos.frontend.presenter.state.ManterContatosState;
 
 public class ManterPresenter {
     
