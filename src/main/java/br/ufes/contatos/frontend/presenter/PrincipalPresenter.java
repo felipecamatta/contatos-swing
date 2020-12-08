@@ -54,6 +54,7 @@ public class PrincipalPresenter {
     
     private void incluir(){
         this.manter = new ManterPresenter();
+        this.consultar.addObservado(manter);
         new IncluirContatoPresenter(this.manter);
     }
     

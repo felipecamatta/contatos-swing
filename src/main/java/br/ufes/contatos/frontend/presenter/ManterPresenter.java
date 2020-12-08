@@ -11,7 +11,7 @@ import br.ufes.contatos.frontend.presenter.state.EdicaoContatoPresenter;
 import br.ufes.contatos.frontend.presenter.state.IncluirContatoPresenter;
 import br.ufes.contatos.frontend.presenter.state.ManterContatosState;
 
-public class ManterPresenter {
+public class ManterPresenter extends Observado{
     
     private ManterContatosState estado;
     private ManterContatoView view;
@@ -29,6 +29,7 @@ public class ManterPresenter {
             public void actionPerformed(ActionEvent e) {
                 command = new InsercaoCommand(estado);
                 command.executar();
+                update();
             }
         });
         
@@ -52,6 +53,7 @@ public class ManterPresenter {
             public void actionPerformed(ActionEvent e) {
                 command = new InsercaoCommand(estado);
                 command.executar();
+                update();
             }
         });
         

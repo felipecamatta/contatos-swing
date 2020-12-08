@@ -14,7 +14,7 @@ import java.awt.event.ActionListener;
 import java.util.ListIterator;
 import br.ufes.contatos.frontend.presenter.command.ICommandPresenter;
 
-public class ConsultarContatosPresenter {
+public class ConsultarContatosPresenter extends Observador{
     
     private ConsultarContatosView view;
     private ContatoCollection contatos;
@@ -52,10 +52,11 @@ public class ConsultarContatosPresenter {
             }
         });
         
+        ConsultarContatosPresenter propria = this;  //Apenas para o action listener encontrar essa instância da classe 
         view.getBtnAlterar().addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                command = new EditarCommand(getContatoTabela());
+                command = new EditarCommand(getContatoTabela(), propria);
                 command.executar();
                 preencheTabela();
             }
@@ -84,6 +85,11 @@ public class ConsultarContatosPresenter {
     private Contato getContatoTabela(){
         int posicao = view.getTblContatos().getSelectedRow();
         return contatos.getContatos().get(posicao);
+    }
+
+    @Override
+    public void atualizar() {
+        this.preencheTabela();
     }
 
 }
