@@ -14,7 +14,7 @@ import java.awt.event.ActionListener;
 import java.util.ListIterator;
 import br.ufes.contatos.frontend.presenter.command.ICommandPresenter;
 
-public class ConsultarContatosPresenter extends Observador{
+public class ConsultarContatosPresenter implements Observador{
     
     private ConsultarContatosView view;
     private ContatoCollection contatos;
@@ -87,8 +87,9 @@ public class ConsultarContatosPresenter extends Observador{
         return contatos.getContatos().get(posicao);
     }
 
+
     @Override
-    public void atualizar() {
+    public void update() {
         this.preencheTabela();
     }
 

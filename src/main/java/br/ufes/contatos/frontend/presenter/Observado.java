@@ -5,18 +5,33 @@
  */
 package br.ufes.contatos.frontend.presenter;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  *
  * @author gabriel
  */
 public abstract class Observado {
     
-    private Observador observador;
+    private List<Observador> observadores;
 
     public Observado() {
+        this.observadores = new ArrayList<>();
     }
     
-    public void update(){
-        this.observador.atualizar();
+    public void addObservador(Observador o){
+        this.observadores.add(o);
     }
+    
+    public void removerObservador(Observador o){
+        this.observadores.remove(o);
+    }
+    
+    public void notificarObservadores(){
+        for(Observador o : observadores){
+            o.update();
+        }
+    }
+    
 }

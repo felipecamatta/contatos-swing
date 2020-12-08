@@ -5,26 +5,12 @@
  */
 package br.ufes.contatos.frontend.presenter;
 
-import java.util.ArrayList;
-import java.util.List;
-
 /**
  *
  * @author gabriel
  */
-public abstract class Observador {
+public interface Observador {
     
-    private List<Observado> observados;
-
-    public Observador() {
-        this.observados = new ArrayList<>();
-    }
-    
-    public void addObservado(Observado o){
-        this.observados.add(o);
-        
-    }
-    
-    public abstract void atualizar();
+    public void update();
     
 }

@@ -29,7 +29,7 @@ public class ManterPresenter extends Observado{
             public void actionPerformed(ActionEvent e) {
                 command = new InsercaoCommand(estado);
                 command.executar();
-                update();
+                notificarObservadores();
             }
         });
         
@@ -53,7 +53,7 @@ public class ManterPresenter extends Observado{
             public void actionPerformed(ActionEvent e) {
                 command = new InsercaoCommand(estado);
                 command.executar();
-                update();
+                notificarObservadores();
             }
         });
         

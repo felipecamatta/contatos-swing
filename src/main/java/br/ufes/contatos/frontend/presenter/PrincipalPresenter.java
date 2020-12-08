@@ -50,12 +50,19 @@ public class PrincipalPresenter {
     
     private void consultar(){
         this.consultar = new ConsultarContatosPresenter(this);
+        
+        if(manter != null){
+            this.manter.addObservador(consultar);
+        }
     }
     
     private void incluir(){
         this.manter = new ManterPresenter();
-        this.consultar.addObservado(manter);
         new IncluirContatoPresenter(this.manter);
+        
+        if(consultar != null){
+            this.manter.addObservador(consultar);
+        }
     }
     
     

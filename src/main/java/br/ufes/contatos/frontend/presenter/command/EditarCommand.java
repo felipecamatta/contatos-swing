@@ -26,7 +26,7 @@ public class EditarCommand implements ICommandPresenter{
 
     @Override
     public void executar() {
-        this.controler.addObservado(new ManterPresenter(this.contato));
+        new ManterPresenter(this.contato).addObservador(controler);//Observador
     }
     
     
