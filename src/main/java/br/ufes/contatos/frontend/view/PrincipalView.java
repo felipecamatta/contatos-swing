@@ -1,16 +1,8 @@
 package br.ufes.contatos.frontend.view;
 
-import br.ufes.contatos.frontend.collection.ContatoCollection;
-import br.ufes.contatos.frontend.presenter.ConsultarContatosPresenter;
-import br.ufes.contatos.frontend.presenter.state.IncluirContatoPresenter;
-import br.ufes.contatos.frontend.service.ContatoService;
-
 import javax.swing.*;
 
 public class PrincipalView extends JFrame {
-
-    private ContatoCollection contatos;
-    private ContatoService contatoService = new ContatoService();
 
     public PrincipalView() {
         initComponents();
@@ -31,19 +23,9 @@ public class PrincipalView extends JFrame {
         jMenu1.setText("Opções");
 
         itemIncluir.setText("Incluir contatos");
-        itemIncluir.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                itemIncluirActionPerformed(evt);
-            }
-        });
         jMenu1.add(itemIncluir);
 
         itemConsultar.setText("Consultar contatos");
-        itemConsultar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                itemConsultarActionPerformed(evt);
-            }
-        });
         jMenu1.add(itemConsultar);
 
         mbPrincipal.add(jMenu1);
@@ -64,14 +46,6 @@ public class PrincipalView extends JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void itemConsultarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itemConsultarActionPerformed
-
-    }//GEN-LAST:event_itemConsultarActionPerformed
-
-    private void itemIncluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itemIncluirActionPerformed
-
-    }//GEN-LAST:event_itemIncluirActionPerformed
-
     public JMenuItem getItemConsultar() {
         return itemConsultar;
     }
@@ -80,8 +54,6 @@ public class PrincipalView extends JFrame {
         return itemIncluir;
     }
 
-    
-    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenuItem itemConsultar;
     private javax.swing.JMenuItem itemIncluir;

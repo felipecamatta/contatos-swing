@@ -1,5 +1,6 @@
 package br.ufes.contatos.frontend.presenter;
 
+import br.ufes.contatos.frontend.presenter.observable.Observador;
 import br.ufes.contatos.frontend.collection.ContatoCollection;
 import br.ufes.contatos.frontend.model.Contato;
 import br.ufes.contatos.frontend.presenter.command.EditarCommand;

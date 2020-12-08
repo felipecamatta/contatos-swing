@@ -5,7 +5,6 @@ import br.ufes.contatos.frontend.model.Contato;
 import br.ufes.contatos.frontend.view.ManterContatoView;
 import javax.swing.JOptionPane;
 
-
 public class IncluirContatoPresenter extends ManterContatosState {
 
     public IncluirContatoPresenter(ManterPresenter presenter) {
@@ -24,6 +23,5 @@ public class IncluirContatoPresenter extends ManterContatosState {
                 "Salvo com sucesso",
                 JOptionPane.INFORMATION_MESSAGE);
     }
-    
 
 }

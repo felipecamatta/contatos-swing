@@ -22,7 +22,7 @@ public class ManterContatoView extends javax.swing.JFrame {
         btnFechar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        setTitle("Incluir contato");
+        setTitle("Manter Contato");
 
         lblNome.setText("Nome:");
 
@@ -70,6 +70,7 @@ public class ManterContatoView extends javax.swing.JFrame {
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

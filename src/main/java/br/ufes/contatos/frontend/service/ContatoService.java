@@ -8,31 +8,26 @@ import java.util.Arrays;
 
 public class ContatoService {
 
-    private static String url = "https://contatos-pss.herokuapp.com/contatos";
+    private final String url = "https://contatos-pss.herokuapp.com/contatos";
 
     public ContatoCollection getContatos() {
         RestTemplate restTemplate = new RestTemplate();
-
         Contato[] contatos = restTemplate.getForObject(url, Contato[].class);
-
         return new ContatoCollection(Arrays.asList(contatos));
     }
 
     public void saveContato(Contato contato) {
         RestTemplate restTemplate = new RestTemplate();
-
-        Contato result = restTemplate.postForObject(url, contato, Contato.class);
+        restTemplate.postForObject(url, contato, Contato.class);
     }
 
     public void updateContato(Contato contato) {
         RestTemplate restTemplate = new RestTemplate();
-
         restTemplate.put(url + "/" + contato.getId(), contato);
     }
 
     public void deleteContato(Contato contato) {
         RestTemplate restTemplate = new RestTemplate();
-
         restTemplate.delete(url + "/" + contato.getId());
     }
 

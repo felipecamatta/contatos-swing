@@ -1,21 +1,11 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package br.ufes.contatos.frontend.presenter.command;
 
 import br.ufes.contatos.frontend.model.Contato;
 import br.ufes.contatos.frontend.presenter.ConsultarContatosPresenter;
 import br.ufes.contatos.frontend.presenter.ManterPresenter;
 
+public class EditarCommand implements ICommandPresenter {
 
-/**
- *
- * @author gabriel
- */
-public class EditarCommand implements ICommandPresenter{
-    
     private Contato contato;
     private ConsultarContatosPresenter controler;
 
@@ -26,9 +16,7 @@ public class EditarCommand implements ICommandPresenter{
 
     @Override
     public void executar() {
-        new ManterPresenter(this.contato).addObservador(controler);//Observador
+        new ManterPresenter(this.contato).addObservador(controler);
     }
-    
-    
-    
+
 }

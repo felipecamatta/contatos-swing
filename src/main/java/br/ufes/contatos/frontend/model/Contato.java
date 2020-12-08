@@ -3,9 +3,7 @@ package br.ufes.contatos.frontend.model;
 public class Contato {
 
     private Long id;
-
     private String nome;
-
     private String telefone;
 
     public Contato() {

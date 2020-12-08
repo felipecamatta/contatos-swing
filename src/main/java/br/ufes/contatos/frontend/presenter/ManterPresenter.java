@@ -1,6 +1,6 @@
-
 package br.ufes.contatos.frontend.presenter;
 
+import br.ufes.contatos.frontend.presenter.observable.Observado;
 import br.ufes.contatos.frontend.model.Contato;
 import br.ufes.contatos.frontend.view.ManterContatoView;
 import java.awt.event.ActionEvent;
