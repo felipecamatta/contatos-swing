@@ -5,12 +5,15 @@ import br.ufes.contatos.frontend.model.Contato;
 import br.ufes.contatos.frontend.view.ManterContatoView;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import br.ufes.contatos.frontend.presenter.command.ICommandPresenter;
+import br.ufes.contatos.frontend.presenter.command.InsercaoCommand;
 
 public class ManterPresenter {
     
     private ManterContatosState estado;
     private ManterContatoView view;
     private Contato contato;
+    private ICommandPresenter command; 
 
     public ManterPresenter(Contato contato) {  //Edição
         this.view = new ManterContatoView();
@@ -21,7 +24,8 @@ public class ManterPresenter {
         this.view.getBtnSalvar().addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                estado.salvar();
+                command = new InsercaoCommand(estado);
+                command.executar();
             }
         });
         
@@ -43,7 +47,8 @@ public class ManterPresenter {
         this.view.getBtnSalvar().addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                estado.salvar();
+                command = new InsercaoCommand(estado);
+                command.executar();
             }
         });
         
