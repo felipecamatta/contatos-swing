@@ -1,46 +1,22 @@
 package br.ufes.contatos.frontend.presenter.state;
 
 import br.ufes.contatos.frontend.model.Contato;
-import br.ufes.contatos.frontend.presenter.ManterContatoPresenter;
 import br.ufes.contatos.frontend.view.ManterContatoView;
+import javax.swing.JOptionPane;
 
-import javax.swing.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 
 public class IncluirContatoPresenter extends ManterContatosState {
 
-    public IncluirContatoPresenter(ManterContatoPresenter principal) {
-        super(new ManterContatoView(), principal);
-
-        ManterContatoView view = (ManterContatoView) this.getView();
-
-        view.getBtnFechar().addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                fechar();
-            }
-
-        });
-
-        view.getBtnSalvar().addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                String nome = view.getTxtNome().getText();
-                String telefone = view.getTxtTelefone().getText();
-
-                salvar(new Contato(nome, telefone));
-            }
-        });
-
-        view.setVisible(true);
+    public IncluirContatoPresenter(ManterPresenter presenter) {
+        super(presenter);
     }
 
     @Override
-    public void salvar(Contato contato) {
-        ManterContatoView view = (ManterContatoView) this.getView();
+    public void salvar() {
+        ManterContatoView view = this.presenter.getView();
 
-        this.getContatoService().saveContato(contato);
+        Contato contato = this.presenter.getContatoView();
+        this.contatoService.saveContato(contato);
 
         JOptionPane.showMessageDialog(view,
                 "Contato " + contato.getNome() + " salvo com sucesso!",
@@ -48,9 +24,5 @@ public class IncluirContatoPresenter extends ManterContatosState {
                 JOptionPane.INFORMATION_MESSAGE);
     }
     
-    @Override
-    public void fechar() {
-        this.getView().dispose();
-    }
 
 }

@@ -1,10 +1,10 @@
 package br.ufes.contatos.frontend;
 
-import br.ufes.contatos.frontend.presenter.ManterContatoPresenter;
+import br.ufes.contatos.frontend.presenter.PrincipalPresenter;
 
 public class Principal {
 
     public static void main(String[] args) {
-        new ManterContatoPresenter();
+        new PrincipalPresenter();
     }
 }

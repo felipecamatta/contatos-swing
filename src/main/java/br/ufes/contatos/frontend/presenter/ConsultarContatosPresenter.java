@@ -1,10 +1,9 @@
 package br.ufes.contatos.frontend.presenter;
 
-import br.ufes.contatos.frontend.presenter.state.RemoverContatoPresenter;
-import br.ufes.contatos.frontend.presenter.state.ManterContatosState;
 import br.ufes.contatos.frontend.collection.ContatoCollection;
 import br.ufes.contatos.frontend.model.Contato;
-import br.ufes.contatos.frontend.presenter.state.EdicaoContatoPresenter;
+import br.ufes.contatos.frontend.presenter.state.ManterPresenter;
+import br.ufes.contatos.frontend.service.ContatoService;
 import br.ufes.contatos.frontend.view.ConsultarContatosView;
 
 import javax.swing.*;
@@ -13,16 +12,17 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ListIterator;
 
-public class ConsultarContatosPresenter extends ManterContatosState {
+public class ConsultarContatosPresenter {
     
+    private ConsultarContatosView view;
     private ContatoCollection contatos;
+    private ContatoService contatoService; 
     private DefaultTableModel tmContatos;
     
-    public ConsultarContatosPresenter(ManterContatoPresenter principal) {
-        super(new ConsultarContatosView(), principal);
-        this.contatos = this.getContatoService().getContatos();
-        
-        ConsultarContatosView view = (ConsultarContatosView) this.getView();
+    public ConsultarContatosPresenter(PrincipalPresenter principal) {
+        this.view = new ConsultarContatosView();
+        this.contatoService = new ContatoService();
+        this.contatos = this.contatoService.getContatos();
         
         tmContatos = new DefaultTableModel(
                 new Object[][]{},
@@ -43,17 +43,23 @@ public class ConsultarContatosPresenter extends ManterContatosState {
         view.getBtnExcluir().addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                int posicao = view.getTblContatos().getSelectedRow();
-                excluir(contatos.getContatos().get(posicao));
+                excluir(getContatoTabela());
             }
         });
+        
+        view.getBtnAlterar().addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                new ManterPresenter(getContatoTabela());
+            }
+        });
+        
         
         view.setVisible(true);
     }
     
-    @Override
     public void fechar() {
-        this.getView().dispose();
+        this.view.dispose();
     }
     
     private void preencheTabela(ConsultarContatosView view) {
@@ -68,14 +74,13 @@ public class ConsultarContatosPresenter extends ManterContatosState {
         view.getTblContatos().setModel(tmContatos);
     }
     
-    @Override
-    public void editar(Contato contato) {
-        this.getControlador().setEstado(new EdicaoContatoPresenter(this.getControlador()));
+    private Contato getContatoTabela(){
+        int posicao = view.getTblContatos().getSelectedRow();
+        return contatos.getContatos().get(posicao);
     }
     
-    @Override
-    public void excluir(Contato contato) {
-        this.getControlador().setEstado(new RemoverContatoPresenter(this.getView(), contato, this.getControlador()));
+    private void excluir(Contato contato){
+        this.contatoService.deleteContato(contato);
     }
     
 }
