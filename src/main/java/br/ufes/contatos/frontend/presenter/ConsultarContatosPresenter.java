@@ -4,7 +4,6 @@ import br.ufes.contatos.frontend.collection.ContatoCollection;
 import br.ufes.contatos.frontend.model.Contato;
 import br.ufes.contatos.frontend.presenter.command.EditarCommand;
 import br.ufes.contatos.frontend.presenter.command.ExcluirCommand;
-import br.ufes.contatos.frontend.presenter.state.ManterPresenter;
 import br.ufes.contatos.frontend.service.ContatoService;
 import br.ufes.contatos.frontend.view.ConsultarContatosView;
 
@@ -71,6 +70,7 @@ public class ConsultarContatosPresenter {
     
     private void preencheTabela() {
         tmContatos.setNumRows(0);
+        contatos = contatoService.getContatos();
         ListIterator<Contato> it = contatos.getContatos().listIterator();
         
         while (it.hasNext()) {
